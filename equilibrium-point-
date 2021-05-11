@@ -1,0 +1,34 @@
+class Solution{
+    public:
+    // Function to find equilibrium point in the array.
+    // a: input array
+    // n: size of array
+    int equilibriumPoint(long long arr[], int n) {
+    
+ int sum = 0;
+     int leftsum= 0;
+     for(int i  = 0; i<n;i++)
+     sum = sum+arr[i];
+     for(int i = 0;i<n;i++)
+     {
+         sum -=arr[i];
+         if(sum==leftsum)
+         return i+1;
+         leftsum+=arr[i];
+     }
+     return -1;
+} 
+int main() {
+Long Long t; 
+cin >>t;
+while (t--){
+Long Long n;
+ cin>> n;
+Long Long a[n];
+ for (Long Long i = 0; i <n; i++) 
+{ cin>> a[i];
+ cout < ob.equilibriumPoint (a, n) << endl;
+}
+
+return 0;
+}
