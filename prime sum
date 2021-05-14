@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main()
+{
+    int  i, j, l,r, flag, sum=0;
+
+{
+        printf("Find sum of all prime between l to r: ");
+    scanf("%d%d", &l,&r);
+
+        for(i=l; i<=r; i++)
+    {
+               flag = 1;
+        for(j=2; j<=i/2 ;j++)
+        {
+            if(i%j==0)
+            {
+                flag = 0;
+                break;
+            }
+        }
+
+                if(flag==1)
+        {
+            sum += i;
+        }
+    }
