@@ -1,0 +1,16 @@
+int maxSubarrayXOR(int N, int arr[]){    
+        int ans = INT_MIN;    
+
+        for (int i=0; i<N; i++)
+    {
+        int curr_xor = 0; 
+
+                for (int j=i; j<N; j++)
+        {
+            curr_xor = curr_xor ^ arr[j];
+            ans = max(ans, curr_xor);
+        }
+    }
+    return ans;
+    }
+        
