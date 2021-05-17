@@ -1,0 +1,4 @@
+class Solution {
+  public:
+    long long int convertEvenBitToZero(long long int n) {
+       return (n & 0xAAAAAAAA); 
