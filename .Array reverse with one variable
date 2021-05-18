@@ -1,0 +1,16 @@
+#include <stdio.h>
+void reverseArray();
+int main() {
+    printf("Enter a name");
+    reverseArray();
+    return 0;
+}
+
+void reverseArray() {
+    char c;
+    scanf("%c", &c);
+    if (c != '\n') {
+        reverseArray();
+        printf("%c", c);
+    }
+}
