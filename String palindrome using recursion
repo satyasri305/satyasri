@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+ void palindrome(char [], int);
+ int main() 
+{
+   char s[15];
+     printf("Enter a string to check if it is a palindrome\n");
+    scanf("%s", &s);
+    palindrome(s, 0);
+     return 0;
+}
+ void palindrome(char s[], int index)
+{
+    int len = strlen(s) - (index + 1);
+    if (s[index] == s[len])
+    {
+        if (index + 1 == len || index == len)
+        {
+            printf("The entered string is a palindrome\n");
+            return;
+        }
+        palindrome(s, index + 1);
+    }
+    else
+    {
+        printf("The entered string is not a palindrome\n");
+    }
+}
