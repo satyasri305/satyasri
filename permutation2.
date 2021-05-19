@@ -1,0 +1,32 @@
+class Solution {
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> allPermute = new ArrayList<>();
+        permuteUniqueImpl(nums, 0, allPermute);
+        
+        return allPermute;
+    }
+    
+    public void permuteUniqueImpl(int[] nums, int index, List<List<Integer>> allPermute) {
+        if (index == nums.length) {
+            List<Integer> newPermute = new ArrayList<>();
+            for (int i : nums) {
+                newPermute.add(i);
+            }
+            allPermute.add(newPermute);
+            return;
+        }
+        Set<Integer> curPos = new HashSet<>();
+        for (int i = index; i < nums.length; i++) { 
+            if (!curPos.add(nums[i])) continue;
+            swap(nums, index, i);
+            permuteUniqueImpl(nums, index + 1, allPermute);
+            swap(nums, index, i);
+        }
+    }
+    
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
