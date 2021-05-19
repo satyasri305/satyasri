@@ -1,0 +1,28 @@
+class Solution {
+public:
+
+vector<vector<int>> res;
+
+void permutation(vector<int> nums, int start, int end){
+    
+    if(start==end){
+        res.push_back(nums);
+        return;
+    }
+    
+    for(int i=start;i<=end;i++){
+        swap(nums[i],nums[start]);  //do swapping 
+        permutation(nums,start+1,end); //recur
+        swap(nums[i],nums[start]);  //undo swapping again
+    }
+}
+vector<vector<int>> permute(vector<int>& nums) {
+    int len=nums.size();
+    if(len==1){
+        res.push_back(nums);
+        return res;
+    }
+    permutation(nums,0,len-1);
+    return res;
+}
+};
